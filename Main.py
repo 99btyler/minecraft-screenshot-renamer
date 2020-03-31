@@ -1,6 +1,7 @@
 import os
 from PIL import Image
 
+
 source_folder = "screenshots"
 new_folder = "screenshots_renamed"
 
