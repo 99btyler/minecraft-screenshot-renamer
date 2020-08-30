@@ -16,8 +16,8 @@ for file in os.listdir(source_folder):
 		date = s_namesplit[0]
 		datesplit = date.split("-")
 		d_year = datesplit[0]
-		d_month = datesplit[1]
-		d_day = datesplit[2]
+		d_month = datesplit[1].lstrip("0")
+		d_day = datesplit[2].lstrip("0")
 		better_date = f"{d_month}.{d_day}.{d_year}"
 
 		time = s_namesplit[1]
