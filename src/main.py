@@ -2,19 +2,19 @@ import os
 from PIL import Image
 
 
-source_folder = "screenshots"
-new_folder = "screenshots_renamed"
+input_folder = "screenshots"
+output_folder = "screenshots_renamed"
 
-for file in os.listdir(source_folder):
+for file in os.listdir(input_folder):
 
 	# Get the current screenshot (plus its name & extension)
-	screenshot = Image.open(f"{source_folder}/{file}")
+	screenshot = Image.open(f"{input_folder}/{file}")
 	s_name, s_extension = os.path.splitext(file)
 
 	# Separate the date and time
 	s_namesplit = s_name.split("_")
 
-	# DATE
+	# DATE (xxxx-xx-xx)
 	date = s_namesplit[0]
 	datesplit = date.split("-")
 	d_year = datesplit[0]
@@ -22,7 +22,7 @@ for file in os.listdir(source_folder):
 	d_day = datesplit[2].lstrip("0")
 	better_date = f"{d_month}.{d_day}.{d_year}"
 
-	# TIME
+	# TIME (xx.xx.xx)
 	time = s_namesplit[1]
 	timesplit = time.split(".")
 	t_hour = timesplit[0]
@@ -34,6 +34,6 @@ for file in os.listdir(source_folder):
 
 	s_name_2 = f"{better_date} @ {better_time}"
 
-	screenshot.save(f"{new_folder}/{s_name_2}{s_extension}")
+	screenshot.save(f"{output_folder}/{s_name_2}{s_extension}")
 	print(f"Renamed {s_name} to {s_name_2}")
 
